@@ -9,7 +9,7 @@ let playbackBarFill = document.querySelector('.playback-bar > .fill')
 let currentSongURL = '';
 async function getSongs() {
 
-    let a = await fetch("http://127.0.0.1:5500/SPOTIFY-PROFILE-PAGE/songs/");
+    let a = await fetch("./SPOTIFY-PROFILE-PAGE/songs/");
     let response = await a.text();
     let element = document.createElement("div");
     element.innerHTML= response;
@@ -29,7 +29,7 @@ let audio = new Audio();
 let pausePosition = 0;
 let tempURL = '';
 function playMusic(track) {
-    let songURL = 'http://127.0.0.1:5500/SPOTIFY-PROFILE-PAGE/songs/'+ track 
+    let songURL = './SPOTIFY-PROFILE-PAGE/songs/'+ track 
     currentSongURL = songURL;
     audio.src = songURL;
     if (tempURL === songURL) {
@@ -43,7 +43,7 @@ function playMusic(track) {
     audio.play();
 }
 function pauseMusic(track) {
-    let songURL = 'http://127.0.0.1:5500/SPOTIFY-PROFILE-PAGE/songs/'+ track 
+    let songURL = './SPOTIFY-PROFILE-PAGE/songs/'+ track 
     currentSongURL = songURL;
     pausePosition = audio.currentTime;
     audio.pause();
